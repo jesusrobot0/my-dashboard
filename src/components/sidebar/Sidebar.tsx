@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { title } from "@/fonts";
+import { LayoutGrid } from "lucide-react";
 
 export function Sidebar() {
   return (
@@ -14,9 +15,11 @@ export function Sidebar() {
           <li>
             <Link
               href="#"
-              className="block w-full p-4 text-2xl text-[#84b4eb] rounded-xl hover:text-white hover:bg-[#5f9be6]"
+              className="w-full p-4 flex items-center text-2xl gap-3 text-[#84b4eb] rounded-xl hover:text-white hover:bg-[#5f9be6]"
             >
-              <span>icon</span>
+              <span>
+                <LayoutGrid color="#fff" />
+              </span>
               <span>Home</span>
             </Link>
           </li>

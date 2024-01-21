@@ -3,8 +3,12 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 
-export function Counter() {
-  const [counter, setCounter] = useState(0);
+interface Props {
+  value?: number;
+}
+
+export function Counter({ value }: Props) {
+  const [counter, setCounter] = useState(value!);
 
   const handleAdd = () => setCounter(counter + 1);
   const handleReset = () => setCounter(0);

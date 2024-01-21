@@ -15,7 +15,7 @@ export default function CounterPage() {
       />
 
       <main className="w-full h-full flex justify-center items-center">
-        <Counter />
+        <Counter value={0} />
       </main>
     </>
   );

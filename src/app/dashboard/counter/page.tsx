@@ -1,3 +1,17 @@
+import { TitlePage } from "@/components";
+import { Counter } from "@/components/counter/Counter";
+
 export default function CounterPage() {
-  return <h1>Counter Page</h1>;
+  return (
+    <>
+      <TitlePage
+        title="Counter"
+        description="With this app I learned Client Side Rendering (CSR)"
+      />
+
+      <main className="w-full h-full flex justify-center items-center">
+        <Counter />
+      </main>
+    </>
+  );
 }

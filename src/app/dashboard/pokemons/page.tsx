@@ -1,18 +1,5 @@
 import { TitlePage } from "@/components";
-import { PokemonsResponse, SimplePokemon } from "@/pokemons";
-
-async function getPokemons(limit = 151, offset = 0): Promise<SimplePokemon[]> {
-  const data: PokemonsResponse = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-  ).then((res) => res.json());
-
-  const pokemons = data.results.map((pokemon) => ({
-    id: pokemon.url.split("/").at(-2)!,
-    name: pokemon.name,
-  }));
-
-  return pokemons;
-}
+import { getPokemons } from "@/pokemons";
 
 export default async function PokemonsPage() {
   const pokemons = await getPokemons();

@@ -13,10 +13,10 @@ const POKEMONS_API =
 export function PokemonCard({ pokemon: { id, name } }: Props) {
   return (
     <div className="w-[300px] p-4 border border-gray-200 rounded-lg">
-      <div className="h-[150px] flex justify-center items-center bg-gradient-to-b from-slate-100 via-neutral-50">
+      <div className="h-[160px] flex justify-center items-center bg-gradient-to-b from-slate-100 via-neutral-50">
         <Image
           src={`${POKEMONS_API}${id}.svg`}
-          alt=""
+          alt={`Image of the pokemon ${name}`}
           width={110}
           height={110}
         />

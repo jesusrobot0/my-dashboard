@@ -1,5 +1,5 @@
 import { TitlePage } from "@/components";
-import { getPokemons } from "@/pokemons";
+import { PokemonGrid, getPokemons } from "@/pokemons";
 
 export default async function PokemonsPage() {
   const pokemons = await getPokemons();
@@ -11,10 +11,8 @@ export default async function PokemonsPage() {
         description="With this app I learned Server Side Rendering (SSR) and Statir Site Generation (SSG)"
       />
 
-      <main className="w-full h-full flex gap-3 flex-col">
-        {pokemons.map((pokemon) => (
-          <p key={pokemon.id}>{pokemon.name}</p>
-        ))}
+      <main className="w-full h-full mt-12 flex flex-wrap gap-10">
+        <PokemonGrid pokemons={pokemons} />
       </main>
     </div>
   );

@@ -30,7 +30,7 @@ export function PokemonCard({ pokemon: { id, name } }: Props) {
           <HeartOff width={18} color="red" />
         </button>
         <Link
-          href={`/dashboard/pokemons/${id}`}
+          href={`/dashboard/pokemon/${id}`}
           className="flex items-center gap-1 p-2 text-xs text-[#5181da]"
         >
           See more

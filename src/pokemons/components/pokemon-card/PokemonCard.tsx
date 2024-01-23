@@ -4,13 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, HeartOff, MoveRight } from "lucide-react";
 import { PokemonTypes, SimplePokemon } from "@/pokemons";
+import { POKEMONS_API } from "@/constants";
 
 interface Props {
   pokemon: SimplePokemon;
 }
-
-const POKEMONS_API =
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
 
 export function PokemonCard({ pokemon: { id, name } }: Props) {
   return (

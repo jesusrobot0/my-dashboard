@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, HeartOff, MoveRight } from "lucide-react";
-import { SimplePokemon, getPokemon } from "@/pokemons";
+import { ColorTypes, SimplePokemon, Type } from "@/pokemons";
 
 interface Props {
   pokemon: SimplePokemon;
@@ -13,8 +13,29 @@ interface Props {
 const POKEMONS_API =
   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
 
+const COLOR_TYPES: ColorTypes = {
+  steel: "bg-[#d5d5d5]",
+  water: "bg-[#59bfff]",
+  bug: "bg-[#c5d895]",
+  dragon: "bg-[#a585d5]",
+  electric: "bg-[#ffffe0]",
+  ghost: "bg-[#993333]",
+  fire: "bg-[#ff6666]",
+  fairy: "bg-[#f5fffa]",
+  ice: "bg-[#b5ffff]",
+  fighting: "bg-[#f0c8c5]",
+  normal: "bg-[#d5d5d5]",
+  grass: "bg-[#95ff95]",
+  psychic: "bg-[#f5ffff]",
+  rock: "bg-[#d5c2b6]",
+  dark: "bg-[#b33333]",
+  ground: "bg-[#e5c5a5]",
+  poison: "bg-[#c5d2a5]",
+  flying: "bg-[#d5f5d5]",
+};
+
 export function PokemonCard({ pokemon: { id, name } }: Props) {
-  const [types, setTypes] = useState([]);
+  const [types, setTypes] = useState<Type[]>([]);
 
   useEffect(() => {
     const endpoint = `https://pokeapi.co/api/v2/pokemon/${name}`;
@@ -32,11 +53,13 @@ export function PokemonCard({ pokemon: { id, name } }: Props) {
           height={110}
         />
       </div>
-      <div className="my-2">
+      <div className="my-2 flex gap-2">
         {types.map((pokemonType, index) => (
           <span
             key={`${name}-type-${index}`}
-            className="px-2 py-1 text-xs rounded-full bg-gray-200"
+            className={`px-2 py-1 text-xs rounded-full ${
+              COLOR_TYPES[pokemonType.type.name]
+            } text-[#333333] capitalize`}
           >
             {pokemonType.type.name}
           </span>

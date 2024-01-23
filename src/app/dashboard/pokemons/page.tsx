@@ -2,7 +2,7 @@ import { TitlePage } from "@/components";
 import { PokemonGrid, getPokemons } from "@/pokemons";
 
 export default async function PokemonsPage() {
-  const pokemons = await getPokemons(10);
+  const pokemons = await getPokemons();
 
   return (
     <div>

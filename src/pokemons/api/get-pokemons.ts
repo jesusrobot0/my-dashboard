@@ -13,5 +13,7 @@ export async function getPokemons(
     name: pokemon.name,
   }));
 
+  // throw new Error("Oh god the server is on fire 🔥");
+
   return pokemons;
 }

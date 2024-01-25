@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { ColorTypes, Type } from "@/pokemons";
 
@@ -37,7 +38,7 @@ export function PokemonTypes({ name }: Props) {
       .then((json) => setTypes(json.types));
   }, []);
   return (
-    <>
+    <div className="flex gap-1">
       {types.map((pokemonType, index) => (
         <span
           key={`${name}-type-${index}`}
@@ -48,6 +49,6 @@ export function PokemonTypes({ name }: Props) {
           {pokemonType.type.name}
         </span>
       ))}
-    </>
+    </div>
   );
 }

@@ -13,14 +13,21 @@ interface Props {
 export async function generateMetadata({
   params: { id },
 }: Props): Promise<Metadata> {
-  const { name } = await getPokemon(id);
+  try {
+    const { name } = await getPokemon(id);
 
-  const pokemonName = capitalizeWord(name);
+    const pokemonName = capitalizeWord(name);
 
-  return {
-    title: pokemonName,
-    description: `${pokemonName} page`,
-  };
+    return {
+      title: pokemonName,
+      description: `${pokemonName} page`,
+    };
+  } catch (error) {
+    return {
+      title: "Pokemon Page",
+      description: "Pokemon page description",
+    };
+  }
 }
 
 export default async function PokemonPage({ params: { id } }: Props) {

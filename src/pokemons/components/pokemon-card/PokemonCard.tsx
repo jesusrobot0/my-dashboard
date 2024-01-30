@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeartOff, MoveRight } from "lucide-react";
 import { ColorTypes, PokemonTypes, SimplePokemon } from "@/pokemons";
+import { POKEMONS_API } from "@/constants";
 
 interface Props {
   pokemon: SimplePokemon;

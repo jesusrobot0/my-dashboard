@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowLeft, ChevronLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { PokemonTypes, getPokemon } from "@/pokemons";
 import { capitalizeWord } from "@/utils";
 import { TitlePage } from "@/components";
@@ -63,7 +63,7 @@ export default async function PokemonPage({ params: { id } }: Props) {
             </div>
             <div>
               <p className="text-xl font-bold mb-2">Type</p>
-              <PokemonTypes name={pokemon.name} />
+              <PokemonTypes name={pokemon.name} types={pokemon.types} />
             </div>
             <div>
               <p className="text-xl font-bold">Order</p>

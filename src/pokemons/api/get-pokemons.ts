@@ -7,6 +7,7 @@ export async function getPokemons(
   const endpoint = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
   const response = await fetch(endpoint);
   const data: PokemonsResponse = await response.json();
+  console.log(data);
 
   const pokemons = data.results.map((pokemon) => ({
     id: pokemon.url.split("/").at(-2)!,

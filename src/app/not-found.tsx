@@ -1,7 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 import { Sidebar } from "@/components";
 import { title } from "@/fonts";
+
+export const metadata: Metadata = {
+  title: { absolute: "Page not Found" },
+  description:
+    "The resource you wanted to access does not exist or may have been moved",
+};
 
 export default function NotFound() {
   return (

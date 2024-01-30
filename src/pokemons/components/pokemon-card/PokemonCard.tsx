@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, HeartOff, MoveRight } from "lucide-react";
+import { HeartOff, MoveRight } from "lucide-react";
 import { PokemonTypes, SimplePokemon } from "@/pokemons";
 import { POKEMONS_API } from "@/constants";
 

@@ -12,7 +12,7 @@ export function Counter({ value }: Props) {
 
   const handleAdd = () => setCounter(counter + 1);
   const handleReset = () => setCounter(0);
-  const handleSubstract = () => setCounter(counter - 1);
+  const handleSubstract = () => counter >= 1 && setCounter(counter - 1);
 
   return (
     <div className="w-[300px] h-[250px] p-4 border border-[#ccc] rounded-md bg-[#fff]">

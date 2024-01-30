@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { title } from "@/fonts";
-import { Home, StopCircle, Tally5 } from "lucide-react";
 import { SidebarMenuItem } from "..";
+import { Home, StopCircle, Tally5 } from "lucide-react";
 
 const menuItems = [
   {
@@ -40,6 +40,7 @@ export function Sidebar() {
       <footer>
         <Link
           href="https://github.com/jesusrobot0"
+          target="_blank"
           className="flex gap-3 items-center"
         >
           <Image

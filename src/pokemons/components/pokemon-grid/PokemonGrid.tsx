@@ -3,6 +3,7 @@ import { PokemonCard, SimplePokemon } from "@/pokemons";
 interface Props {
   pokemons: SimplePokemon[];
 }
+
 export function PokemonGrid({ pokemons }: Props) {
   return (
     <>

@@ -38,7 +38,7 @@ export function PokemonTypes({ name }: Props) {
       .then((json) => setTypes(json.types));
   }, []);
   return (
-    <div className="flex gap-1">
+    <div className="h-[24px] flex gap-1">
       {types.map((pokemonType, index) => (
         <span
           key={`${name}-type-${index}`}

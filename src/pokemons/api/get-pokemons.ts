@@ -10,7 +10,6 @@ export async function getPokemons(
 
   const pokemonPromises = data.results.map(async (pokemon) => {
     const pokemonTypes = await getPokemon(pokemon.name);
-    console.log(pokemonTypes.types);
 
     return {
       id: pokemon.url.split("/").at(-2)!,

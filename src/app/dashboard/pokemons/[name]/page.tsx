@@ -4,17 +4,15 @@ import type { Metadata } from "next";
 import { ChevronLeft } from "lucide-react";
 import { capitalizeWord } from "@/utils";
 import { TitlePage } from "@/components";
-import { PokemonTypes, getPokemon } from "@/pokemons";
+import { PokemonTypes, getPokemon, getPokemons } from "@/pokemons";
 
 interface Props {
-  params: { id: string };
+  params: { name: string };
 }
 
-export async function generateMetadata({
-  params: { id },
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
-    const { name } = await getPokemon(id);
+    const { name } = await getPokemon(params.name);
 
     const pokemonName = capitalizeWord(name);
 
@@ -36,13 +34,17 @@ export async function generateStaticParams() {
     (_, index) => String(index + 1)
   );
 
-  return staticIdsForFirst151Pokemons.map((id) => ({
-    id,
+  const pokemons = await getPokemons();
+
+  const staticNamesForFirst151Pokemons = pokemons.map((pokemon) => ({
+    name: pokemon.name,
   }));
+
+  return staticNamesForFirst151Pokemons;
 }
 
-export default async function PokemonPage({ params: { id } }: Props) {
-  const pokemon = await getPokemon(id);
+export default async function PokemonPage({ params: { name } }: Props) {
+  const pokemon = await getPokemon(name);
 
   return (
     <div className="ml-12 flex gap-8">

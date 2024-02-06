@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { title } from "@/fonts";
 import { SidebarMenuItem } from "..";
-import { Home, StopCircle, Tally5 } from "lucide-react";
+import { Heart, Home, StopCircle, Tally5 } from "lucide-react";
 
 const menuItems = [
   {
@@ -19,6 +19,11 @@ const menuItems = [
     path: "/dashboard/pokemons",
     icon: <StopCircle />,
     title: "Pékemons",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <Heart />,
+    title: "Favorites",
   },
 ];
 

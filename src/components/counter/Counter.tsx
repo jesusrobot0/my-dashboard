@@ -14,8 +14,21 @@ interface Props {
   value?: number;
 }
 
+// En otras circunstancias estarian en un archivo por separado el interfaz y la llamada
+
+interface CounterResponse {
+  count: number;
+}
+
+async function getApiCounter(): Promise<CounterResponse> {
+  const data = await fetch("/api/counter").then((res) => res.json());
+
+  return data;
+  // return data as CounterResponse // esto seria lo mismo que usar : Promise<CounterResponse>
+}
+
 export function Counter({ value = 0 }: Props) {
-  // const [counter, setCounter] = useState(value!);
+  // const [counter, setCounter] = useState(value!); // esto es lo mismo que lo de abajo
   const counter = useAppSelector((state) => state.counter.count);
   const dispatch = useAppDispatch();
 
@@ -23,8 +36,12 @@ export function Counter({ value = 0 }: Props) {
   const handleReset = () => dispatch(resetCount(0));
   const handleSubstract = () => counter >= 1 && dispatch(substractOne());
 
+  // useEffect(() => {
+  //   dispatch(initCounterState(value));
+  // }, []);
+
   useEffect(() => {
-    dispatch(initCounterState(value));
+    getApiCounter().then(({ count }) => dispatch(initCounterState(count)));
   }, []);
 
   return (

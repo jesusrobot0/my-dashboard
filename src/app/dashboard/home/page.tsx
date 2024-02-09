@@ -1,4 +1,4 @@
-import { TitlePage, Widget } from "@/components";
+import { TitlePage, WidgetGrid } from "@/components";
 
 export const metadata = {
   title: "Home",
@@ -12,10 +12,7 @@ export default async function HomePage() {
         title="Home"
         description="General Information (Redux and LS)"
       />
-
-      <main className="w-full h-full mt-12 flex flex-wrap gap-10">
-        <Widget />
-      </main>
+      <WidgetGrid />
     </div>
   );
 }

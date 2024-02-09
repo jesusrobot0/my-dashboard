@@ -7,7 +7,7 @@ interface CounterSlice {
 }
 
 const initialState: CounterSlice = {
-  count: 20,
+  count: 0,
   isReady: false,
 };
 

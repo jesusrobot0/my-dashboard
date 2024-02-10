@@ -10,3 +10,5 @@ export { getPokemon } from "./api/get-pokemon";
 export { PokemonGrid } from "./components/pokemon-grid/PokemonGrid";
 export { PokemonCard } from "./components/pokemon-card/PokemonCard";
 export { PokemonTypes } from "./components/pokemon-types/PokemonTypes";
+export { FavoritePokemons } from "./components/favorite-pokemons/FavoritePokemons";
+export { FavoritesPlaceholder } from "./components/favorites-placeholder/FavoritesPlaceholder";

@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { HeartOff, MoveRight } from "lucide-react";
+import { Heart, HeartOff, MoveRight } from "lucide-react";
 import { ColorTypes, PokemonTypes, SimplePokemon } from "@/pokemons";
 import { POKEMONS_API } from "@/constants";
+import { useAppDispatch, useAppSelector } from "@/lib/store/hooks";
+import { toggleFavorite } from "@/lib/store/features/pokemons/pokemonsSlice";
 
 interface Props {
   pokemon: SimplePokemon;
@@ -29,7 +33,14 @@ const COLOR_TYPES: ColorTypes = {
   flying: "bg-[#d5f5d5]",
 };
 
-export function PokemonCard({ pokemon: { id, name, types } }: Props) {
+export function PokemonCard({ pokemon }: Props) {
+  const { id, name, types } = pokemon;
+
+  const isFavorite = useAppSelector((state) => !!state.pokemons[id]);
+  const dispatch = useAppDispatch();
+
+  const handleToggle = () => dispatch(toggleFavorite(pokemon));
+
   return (
     <div className="w-[300px] p-4 border border-gray-200 rounded-lg">
       <div className="h-[160px] flex justify-center items-center bg-gradient-to-b from-slate-100 via-neutral-50">
@@ -45,8 +56,16 @@ export function PokemonCard({ pokemon: { id, name, types } }: Props) {
       </div>
       <h2 className="text-xl text-bold capitalize">{name}</h2>
       <div className="flex items-center">
-        <button className="p-2">
-          <HeartOff width={18} color="red" />
+        <button
+          className="p-2 flex items-center gap-1 text-xs text-red-500"
+          onClick={handleToggle}
+        >
+          {isFavorite ? (
+            <Heart width={18} color="red" />
+          ) : (
+            <HeartOff width={18} color="red" />
+          )}
+          {isFavorite ? "Es favorito" : "No es favorito"}
         </button>
         <Link
           href={`/dashboard/pokemon/${id}`}

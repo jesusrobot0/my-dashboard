@@ -10,7 +10,9 @@ interface Props {
 }
 
 export function FavoriteButton({ pokemon }: Props) {
-  const isFavorite = useAppSelector((state) => !!state.pokemons[pokemon.id]);
+  const isFavorite = useAppSelector(
+    (state) => !!state.pokemons.favorites[pokemon.id]
+  );
   const dispatch = useAppDispatch();
 
   const handleToggle = () => dispatch(toggleFavorite(pokemon));

@@ -33,7 +33,8 @@ export function Counter({ value = 0 }: Props) {
   const dispatch = useAppDispatch();
 
   const handleAdd = () => dispatch(addOne());
-  const handleReset = () => dispatch(resetCount(0));
+  const handleReset = () =>
+    getApiCounter().then(({ count }) => dispatch(resetCount(count)));
   const handleSubstract = () => counter >= 1 && dispatch(substractOne());
 
   // useEffect(() => {
@@ -42,7 +43,7 @@ export function Counter({ value = 0 }: Props) {
 
   useEffect(() => {
     getApiCounter().then(({ count }) => dispatch(initCounterState(count)));
-  }, []);
+  });
 
   return (
     <div className="w-[300px] h-[250px] p-4 border border-[#ccc] rounded-md bg-[#fff]">

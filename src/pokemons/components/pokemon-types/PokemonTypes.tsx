@@ -29,7 +29,7 @@ const COLOR_TYPES: ColorTypes = {
 export function PokemonTypes({ types, name }: Props) {
   return (
     <div className="h-[24px] flex gap-1">
-      {types.map((pokemonType, index) => (
+      {types?.map((pokemonType, index) => (
         <span
           key={`${name}-type-${index}`}
           className={`px-2 py-1 text-xs rounded-full ${

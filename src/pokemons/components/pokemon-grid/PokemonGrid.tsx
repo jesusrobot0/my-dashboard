@@ -7,9 +7,9 @@ interface Props {
 export function PokemonGrid({ pokemons }: Props) {
   return (
     <>
-      {pokemons.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />
-      ))}
+      {pokemons.map((pokemon) => {
+        return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
+      })}
     </>
   );
 }
